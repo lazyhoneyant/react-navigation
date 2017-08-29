@@ -32,6 +32,7 @@ type Props = {
   position: Animated.Value,
   navigation: NavigationScreenProp<NavigationState, NavigationAction>,
   jumpToIndex: (index: number) => void,
+  getAccessibility: (scene: TabScene) => ?(React.Element<*> | string),
   getLabel: (scene: TabScene) => ?(React.Element<*> | string),
   getOnPress: (
     scene: TabScene
@@ -145,6 +146,7 @@ export default class TabBarTop extends PureComponent<
         {...props}
         onTabPress={this._handleOnPress}
         jumpToIndex={() => {}}
+        getAccessibilityLabel={this.props.getAccessibility}
         renderIcon={this._renderIcon}
         renderLabel={this._renderLabel}
       />
