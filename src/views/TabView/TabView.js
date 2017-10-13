@@ -96,6 +96,11 @@ class TabView extends PureComponent<void, Props, void> {
   };
 
   _getAccessibility = ({ route }: TabScene) => {
+    const options = this.props.router.getScreenOptions(
+      this.props.childNavigationProps[route.key],
+      this.props.screenProps || {}
+    );
+
     if (options.accessibilityLabel) {
       return typeof options.accessibilityLabel === 'function'
         ? options.accessibilityLabel()
